@@ -16,5 +16,6 @@ steps:
   displayName: 'Build and Push Docker Image'
 
 - script: |
-   az acr build --image sonein:v1 --registry acrwhenin22 --file FDB-storage-app/Dockerfile .
+   cd FDB-storage-app
+   az acr build --image sonein:v1 --registry acrwhenin22 --file Dockerfile .
   displayName: 'push to registry'
