@@ -10,6 +10,7 @@ pool:
 
 steps:
 - script: |
+   az login --service-principal -u 4de44e41-0451-470a-9643-c04a3978db13 -p _yN8Q~foCfmhjjwOVWOiDEkRyuLAWvoGQT1JDbgJ --tenant aad3cd3b-f269-4d1d-abea-18ea92f2ce38
    az group create --name myResourceGroup2 --location eastus
    az acr create --resource-group myResourceGroup1 --name acrwhenin23 --sku Basic
   displayName: 'Build and Push Docker Image'
