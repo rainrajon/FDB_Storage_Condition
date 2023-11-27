@@ -18,4 +18,5 @@ steps:
 - script: |
    cd FDB-storage-app
    ls
+   az acr build --image sonein:v1 --registry acrwhenin22 --file dockerfile .
   displayName: 'push to registry'
