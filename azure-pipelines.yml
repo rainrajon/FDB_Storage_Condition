@@ -13,6 +13,6 @@ steps:
 - script: |
    docker build -t $(Build.Repository.Name):$(Build.BuildId) .
    docker login -u prajwal11 -p CVM6nsLsyiZehaEMB8d4uFg9TiogSRApTpidjTu8Az+ACRCqs9fE prajwal11.azurecr.io
-   docker tag $(Build.Repository.Name):$(Build.BuildId) prajwal11.azurecr.io/$(Build.Repository.Name):$(Build.BuildId)
+   docker tag $(Build.Repository.Name):$(Build.BuildId) prajwal11.azurecr.io/sample/hello-norld:v1
    docker push prajwal11.azurecr.io/$(Build.Repository.Name):$(Build.BuildId)
   displayName: 'Build and Push Docker Image'
