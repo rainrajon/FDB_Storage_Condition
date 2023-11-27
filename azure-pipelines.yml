@@ -16,3 +16,6 @@ steps:
    docker tag $(Build.Repository.Name):$(Build.BuildId) prajwal11.azurecr.io/sample/hello-norld:$(Build.BuildId)
    docker push prajwal11.azurecr.io/sample/hello-norld:$(Build.BuildId)
   displayName: 'Build and Push Docker Image'
+
+- script: docker images
+  displayName: 'List Docker Images'
