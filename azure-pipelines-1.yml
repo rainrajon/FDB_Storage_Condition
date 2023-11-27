@@ -5,25 +5,15 @@
 trigger:
 - main
 
-resources:
-- repo: self
+pool:
+ vmImage: 'ubuntu-latest'
 
-variables:
-  tag: '$(Build.BuildId)'
+steps:
+- script: |
+   az group create --name myResourceGroup2 --location eastus
+   az acr create --resource-group myResourceGroup1 --name acrwhenin23 --sku Basic
+  displayName: 'Build and Push Docker Image'
 
-stages:
-- stage: Build
-  displayName: Build image
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: ubuntu-latest
-    steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/FDB-storage-app/dockerfile'
-        tags: |
-          $(tag)
+- script: |
+   az acr build --image sonein:v1 --registry acrwhenin22 --file Dockerfile .
+  displayName: 'push to registry'
