@@ -12,9 +12,9 @@ steps:
 - script: |
    az login --service-principal -u 457a2087-c8e9-4998-9ab6-fcecddada55d -p aKF8Q~h1eSmRhuOpdubRaOzaQk5J4TX2XEIaDcvf --tenant 1f4beacd-b7aa-49b2-aaa1-b8525cb257e0
    az group create --name myResourceGroup2 --location eastus
-   az acr create --resource-group myResourceGroup1 --name acrwhenin23 --sku Basic
+   az acr create --resource-group myResourceGroup2 --name acrwhenin23 --sku Basic
   displayName: 'Build and Push Docker Image'
 
 - script: |
-   az acr build --image sonein:v1 --registry acrwhenin22 --file Dockerfile .
+   az acr build --image sonein:v1 --registry acrwhenin22 --file FDB-storage-app/Dockerfile .
   displayName: 'push to registry'
