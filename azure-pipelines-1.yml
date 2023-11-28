@@ -16,5 +16,5 @@ steps:
 - script: |
    cd FDB-storage-app
    ls
-   az acr build --image sonein:v$(Build.BuildId) --registry crscnonprod --file dockerfile .
+   az acr build --image sonein:v$(Build.BuildId) --registry demoacrsc --file dockerfile .
   displayName: 'Build and push to registry'
