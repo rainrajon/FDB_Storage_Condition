@@ -142,7 +142,7 @@ def batch_predict():
 
     dff=plan_a[plan_a['Storage_Condition']=='Undetermined']
 
-    plan_a.to_csv('Output/output.csv')
+    #plan_a.to_csv('Output/output.csv')
 
     #implement plan b which will fetch responses for dff and then update in plan a and create a final_df
 
