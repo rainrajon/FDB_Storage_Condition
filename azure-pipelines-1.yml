@@ -18,3 +18,7 @@ steps:
    ls
    az acr build --image sonein:v$(Build.BuildId) --registry demoacrsc --file dockerfile .
   displayName: 'Build and push to registry'
+
+- script: |
+   az container update --resource-group myResourceGroup --name containersc --image demoacrsc.azurecr.io/sonein:v$(Build.BuildId) --registry-username prajwal11 --registry-password 7jYIp0ugnt4j0m+UEIcRq0KGW/goA9oKNPAWKCQWf/+ACRBT4bZE
+   displayName: 'Update Container Instance'
