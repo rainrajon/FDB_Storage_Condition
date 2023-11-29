@@ -1,0 +1,42 @@
+name: Trigger auto deployment for conappnonprod
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ main ]
+    paths:
+    - 'FDB-storage-app/**'
+    - '.github/workflows/conappnonprod-AutoDeployTrigger-10466e2d-0b63-4867-9815-0e80d2620f5b.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:
+      
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.CONAPPNONPROD_AZURE_CREDENTIALS }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }}FDB-storage-app 
+          registryUrl: prajwal11.azurecr.io
+          registryUsername: ${{ secrets.CONAPPNONPROD_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.CONAPPNONPROD_REGISTRY_PASSWORD }}
+          containerAppName: conappnonprod
+          resourceGroup: demo_storage_condition
+          imageToBuild: prajwal11.azurecr.io/conappnonprod:${{ github.sha }}
+          dockerfilePath: Dockerfile
+
+     
+
