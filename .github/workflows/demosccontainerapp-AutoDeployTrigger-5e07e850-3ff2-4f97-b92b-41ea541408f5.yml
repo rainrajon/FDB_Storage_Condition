@@ -7,7 +7,7 @@ on:
     branches: 
       [ main ]
     paths:
-    - 'FDB-storage-app/dockerfile/**'
+    - 'FDB-storage-app/**'
     - '.github/workflows/demosccontainerapp-AutoDeployTrigger-5e07e850-3ff2-4f97-b92b-41ea541408f5.yml'
 
   # Allow manual trigger 
