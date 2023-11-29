@@ -29,7 +29,7 @@ jobs:
       - name: Build and push container image to registry
         uses: azure/container-apps-deploy-action@v2
         with:
-          appSourcePath: ${{ github.workspace }}FDB-storage-app 
+          appSourcePath: ${{ github.workspace }}/FDB-storage-app 
           registryUrl: prajwal11.azurecr.io
           registryUsername: ${{ secrets.CONAPPNONPROD_REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.CONAPPNONPROD_REGISTRY_PASSWORD }}
