@@ -8,5 +8,6 @@ steps:
 - script: |
    az login --service-principal -u 457a2087-c8e9-4998-9ab6-fcecddada55d -p aKF8Q~h1eSmRhuOpdubRaOzaQk5J4TX2XEIaDcvf --tenant 1f4beacd-b7aa-49b2-aaa1-b8525cb257e0
    cd FDB-storage-app
-   az acr build --image sonein:v$(Build.BuildId) --registry demoacrsc --file dockerfile .
+   az acr build --image scimg:v$(Build.BuildId) --registry demoin --file dockerfile .
+   az containerapp update --name prajwalapp --resource-group myResourceGroup --image scimg:v$(Build.BuildId)
    displayName: 'Build and Deploy'
