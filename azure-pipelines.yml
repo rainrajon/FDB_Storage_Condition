@@ -12,5 +12,5 @@ steps:
    az extension add --name containerapp --upgrade
    az provider register --namespace Microsoft.App
    az provider register --namespace Microsoft.OperationalInsights
-   az containerapp update --name prajwalapp --resource-group myResourceGroup --image scimg:v$(Build.BuildId)   
-   displayName: 'Build and Deploy'
+   az containerapp update --name prajwalapp --resource-group myResourceGroup --image demoin.azurecr.io/scimg:v$(Build.BuildId)   
+  displayName: 'Build and Deploy'
